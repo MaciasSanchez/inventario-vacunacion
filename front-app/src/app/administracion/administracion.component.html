@@ -1,0 +1,92 @@
+<div class="mx-4">
+    <div class="my-4 mx-8 ">
+        <div class="mx-4 mt-2">
+            <p-card styleClass="styleClass">
+                <label>NUEVO USUARIO</label>
+
+                <div class="mt-3">
+                    <div>
+                        <label>Rol:</label>
+                    </div>
+                    <div class="mt-2">
+                        <p-dropdown [(ngModel)]="objCrearUser.tipoUser" [options]="optionCargo"></p-dropdown>
+                    </div>
+
+                </div>
+
+                <div class="flex mt-3">
+                    <div class="flex-1">
+                        <div>
+                            <label>Nombres:</label>
+                        </div>
+                        <div class="mt-2">
+                            <input onkeydown="return /[a-z, ]/i.test(event.key)" [(ngModel)]="objCrearUser.nombres" type="text" pInputText>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div>
+                            <label>Apellidos:</label>
+                        </div>
+                        <div class="mt-2">
+                            <input onkeydown="return /[a-z, ]/i.test(event.key)" [(ngModel)]="objCrearUser.apellidos" type="text" pInputText>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex mt-3">
+                    <div class="flex-1">
+                        <div>
+                            <label>Correo:</label>
+                        </div>
+                        <div class="mt-2">
+                            <input [(ngModel)]="objCrearUser.correo" type="text" pInputText>
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <div>
+                            <label>Cedula:</label>
+                        </div>
+                        <div class="mt-2">
+                            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10" [(ngModel)]="objCrearUser.cedula" type="text" pInputText>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mt-3">
+                    <p-button type="button" (click)="guardarUsuario()"> Guardar </p-button>
+                </div>
+
+            </p-card>
+        </div>
+    </div>
+
+    <div class="mx-4">
+        <p-table [value]="UsuariosList" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th id="">Nombres</th>
+                    <th id="">Cedula</th>
+                    <th id="">Correo</th>
+                    <th id="">Usuario</th>
+                    <th id="">Rol</th>
+                    <th id=""></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-User>
+                <tr>
+                    <td>{{User.nombre}} {{User.apellido}}</td>
+                    <td>{{User.cedula}}</td>
+                    <td>{{User.correo}}</td>
+                    <td>{{User.usuario}}</td>
+                    <td>{{User.rol}}</td>
+                    <td>
+                        <i class="pi pi-pencil"></i>
+                        <i class="pi-trash"></i>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
+</div>
+<ng-container>
+    <p-toast [baseZIndex]="10000"></p-toast>
+</ng-container>

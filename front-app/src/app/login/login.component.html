@@ -1,0 +1,25 @@
+<div *ngIf="mostrarLogin" class="text-center mt-7 mx-5">
+    <label class="text-6xl"> login</label>
+    <p-card [style]="{width: '300'}" styleClass="styleClass">
+        <div>
+            <div>
+                <label>Usuarios:</label>
+            </div>
+            <div class="mt-2">
+                <input [(ngModel)]="user" type="text" pInputText>
+            </div>
+        </div>
+        <div>
+            <div class="mt-2">
+                <label>Contraseña:</label>
+            </div>
+            <div class="mt-2">
+                <input [(ngModel)]="password" type="text" pInputText>
+            </div>
+        </div>
+        <span style="color: red;">{{text}}</span>
+        <p-footer>
+            <p-button (click)="validarlogin()"> Confirmar </p-button>
+        </p-footer>
+    </p-card>
+</div>

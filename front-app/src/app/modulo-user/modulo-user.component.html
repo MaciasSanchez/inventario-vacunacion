@@ -1,0 +1,39 @@
+<div class="my-4 ">
+    <div class=" text-center mt-4 mx-5">
+
+        <p-card [style]="{width: '300'}" styleClass="styleClass">
+            <p-table [value]="arrayVacunas" responsiveLayout="scroll">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th id="">Tipo Vacuna</th>
+                        <th id="">Fecha Vacunacion</th>
+						<th id="">Dosis</th>
+                        <th id=""></th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-arrayVacunas>
+                    <tr>
+                        <td>{{arrayVacunas.tipoVacuna}}</td>
+                        <td>{{arrayVacunas.fechaVacunacion}}</td>
+						<td>{{arrayVacunas.numeroDosis}}</td>
+
+                        <th id="">
+                            <p-button (click)="seclectedVacuna(arrayVacunas)">Editar</p-button>
+                        </th>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </p-card>
+    </div>
+
+    <div *ngIf="mensajeConf" class="p-4 bg-green-500">
+        <span> {{menssaje}} </span>
+    </div>
+
+
+
+    <div *ngIf="nuevaComp">
+        <p-button (click)="nuevaDosis()">Nueva Dosis</p-button>
+    </div>
+
+</div>
